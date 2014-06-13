@@ -32,6 +32,12 @@ infix 4 `bsMember`, `bsNotMember`
 bsBound :: BoundedSet -> Int
 bsBound (BoundedSet n _) = n
 
+-- | Resize a bounded set.
+--   The members of the new set are those that are smaller than both
+--   the old and new bounds.
+bsResize :: BoundedSet -> Int -> BoundedSet
+bsResize _ _ = undefined
+
 -- | Test whether an integer is a member of a set
 bsMember :: Int -> BoundedSet -> Bool
 bsMember n (BoundedSet b s) = n >= 0 && n <= b && n `member` s
