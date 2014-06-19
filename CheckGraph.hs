@@ -2,6 +2,7 @@
 module CheckGraph where
 
 import Data.Function
+import Data.List
 import Test.QuickCheck
 import Set
 import BoundedSet
@@ -18,4 +19,6 @@ computed_bfs = map boundedSetToList $ breadthFirstSearch (hypercube 4) 0
 
 main =
   if ((==) `on` map sort) expected_bfs computed_bfs
+  then putStrLn "Test passed"
+  else putStrLn "Test failed"
   

@@ -37,7 +37,7 @@ difference_union s t = forAll arbitrary $ \x ->
   x `bsNotMember` bsUnion s t ==> x `bsNotMember` bsDifference s t
 
 closure_contains_f (Blind f) =
-  f (f (f (f bsEmpty))) `bsDifference` bsTransitiveClosure f `bsEqual` bsEmpty
+  f bsEmpty `bsDifference` bsTransitiveClosure f `bsEqual` bsEmpty
 
 closure_closed (Blind f) =
   let tc = bsTransitiveClosure f
