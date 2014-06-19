@@ -33,9 +33,10 @@ bsBound :: BoundedSet -> Int
 bsBound (BoundedSet n _) = n
 
 -- | Resize a bounded set.
---   The members of the new set are those that are smaller than both
---   the old and new bounds.
-bsResize :: BoundedSet -> Int -> BoundedSet
+--
+--   The members of the new set are those that are in the given set and
+--   also no larger than the given bound.
+bsResize :: BoundedSet -> Int -> Set
 bsResize _ _ = undefined
 
 -- | Test whether an integer is a member of a set
@@ -54,6 +55,7 @@ boundedSetToList (BoundedSet b s) = [x | x <- [0..b], x `member` s]
 boundedSetFromList :: [Int] -> BoundedSet
 boundedSetFromList xs = bsUnions $ map bsSingleton xs
 
+-- | Create a bounded set containing a single number
 bsSingleton :: Int -> BoundedSet
 bsSingleton _ = undefined
 
@@ -75,6 +77,8 @@ bsEqual (BoundedSet b1 s1) (BoundedSet b2 s2) =
   where
     same_membership x = (x `member` s1) == (x `member` s2)
 
+infixl 6 `bsUnion`, `bsIntersection`
+
 -- | The union of two bounded sets
 bsUnion :: BoundedSet -> BoundedSet -> BoundedSet
 bsUnion _ _ = undefined
@@ -82,6 +86,8 @@ bsUnion _ _ = undefined
 -- | The intersection of two bounded sets
 bsIntersection :: BoundedSet -> BoundedSet -> BoundedSet
 bsIntersection _ _ = undefined
+
+infixl 6 `bsDifference`
 
 -- | @s `difference` t@ is the elements of s that are not in t
 bsDifference :: BoundedSet -> BoundedSet -> BoundedSet

@@ -36,18 +36,27 @@ difference_includes s t = forAllMembers (bsDifference s t) $ \x ->
 difference_union s t = forAll arbitrary $ \x ->
   x `bsNotMember` bsUnion s t ==> x `bsNotMember` bsDifference s t
 
+closure_contains_f (Blind f) =
+  f (f (f (f bsEmpty))) `bsDifference` bsTransitiveClosure f `bsEqual` bsEmpty
+
 closure_closed (Blind f) =
   let tc = bsTransitiveClosure f
   in tc `bsEqual` bsUnion tc (f (tc))
 
 main = do
+  putStrLn "singleton"
   quickCheck singleton_contains
   quickCheck singleton_excludes
+  putStrLn "union"
   quickCheck union_subsumes
   quickCheck union_excludes
+  putStrLn "intersection"
   quickCheck intersection_includes
   quickCheck intersection_excludes
+  putStrLn "difference"
   quickCheck difference_includes
   quickCheck difference_excludes
   quickCheck difference_union
+  putStrLn "closure"
+  quickCheck closure_contains_f
   quickCheck closure_closed
