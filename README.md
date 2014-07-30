@@ -12,12 +12,12 @@ is loaded into memory.  Thus, functions play little or no role in
 data structures.
 
 With the ability to make functions dynamically, functions are another
-kind of primitive value that can be used to hold data.  Functions
-are maps from inputs to outputs, built out of code.
+kind of primitive value that can hold dynamically produced data.
+Functions are maps from inputs to outputs, built out of code.
 For instance, the Haskell function `sqrt` maps nonnegative numbers to their
-square roots; the Haskell function `words` maps strings to the lists of
+square roots; the Haskell function `words` maps strings to lists of the
 words that they contain.  Keep in mind this notion of functions as
-mappings; it is often more useful than the imperative view of functions as
+mappings; it is often more useful than thinking of functions as
 instructions for a computer to execute.
 
 The exercises in this repository take you through function-based encodings
@@ -69,8 +69,8 @@ practice.
 As practice, implement the functions in `Set.hs` whose
 bodies are undefined.  Recall that an indicator function represents a
 statement of the form "The set contains a given integer, n, if ...";
-several of the functions boil down to defining an indicator function
-that completes this statement appropriately.
+several of the functions boil down to completing the statement and
+translating it to an indicator function.
 
 Property checks for testing your implementation are in `CheckSet.hs`.
 To check your implementation, run
