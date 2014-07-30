@@ -36,19 +36,19 @@ empty = undefined
 
 -- | The inverse of a set
 complement :: Set -> Set
-complement _ = undefined
+complement (Set f) = undefined
 
 -- | The union of two sets
 union :: Set -> Set -> Set
-union _ _ = undefined
+union (Set f) (Set g) = undefined
 
 -- | The intersection of two sets
 intersection :: Set -> Set -> Set
-intersection _ _ = undefined
+intersection (Set f) (Set g) = undefined
 
 -- | @s `difference` t@ is the elements of s that are not in t
 difference :: Set -> Set -> Set
-difference _ _ = undefined
+difference (Set f) (Set g) = undefined
 
 -- | The union of a list of sets
 unions :: [Set] -> Set
