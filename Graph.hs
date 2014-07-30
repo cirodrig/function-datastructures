@@ -26,7 +26,7 @@ adjacencyList (Graph n adj) =
 -- | Create a graph from an adjacency list
 fromAdjacencyList :: [(Int, Int)] -> Graph
 fromAdjacencyList [] = Graph 0 (\_ -> bsEmpty)
-fromAdjacencyList xs = let maxval = minimum [min i j | (i, j) <- xs]
+fromAdjacencyList xs = let maxval = maximum [max i j | (i, j) <- xs]
                            neighbors i = [j | (i', j) <- xs, i == i']
                        in Graph maxval (boundedSetFromList . neighbors)
 
