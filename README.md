@@ -1,4 +1,7 @@
 
+Function-based data structures
+==============================
+
 In programming languages where functions are statically compiled, such
 as C++, it's natural to view data structures as aggregations of
 machine-level primitive values.  Data produced in a running program
@@ -17,11 +20,11 @@ words that they contain.  Keep in mind this notion of functions as
 mappings; it is often more useful than the imperative view of functions as
 instructions for a computer to execute.
 
-This exercise takes you through function-based encodings of some
-familiar data structures.
+The exercises in this repository take you through function-based encodings
+of some familiar data structures.
 
-Intensional sets
-================
+Intensional Sets
+------------------------
 
 A set is a collection of values.  Consider the following two sets:
 
@@ -57,8 +60,8 @@ For instance, the set of all `Int`s is `Set (\_ -> True)`, which takes
 up much less space than storing every `Int` value in memory.
 Indicator functions sometimes lead to faster code, in particular by
 taking advantage of compiler optimizations that simplify functions.
-Understanding the performance tradeoffs takes some familiarity with
-what optimizations compilers do.  This is too large a subject to
+Understanding the performance tradeoffs requires familiarity with
+compiler optimizations.  This is too large a subject to
 cover here; interested readers can investigate *short-cut fusion* for
 an example of how functions interact with compiler optimizations in
 practice.
@@ -77,7 +80,7 @@ To check your implementation, run
 and verify in the output that all tests pass.
 
 Bounded Sets
-============
+------------------------
 
 Indicator functions do one thing: test whether a value is in the set.
 From the previous exercise, you can see that operations such as set union
@@ -116,17 +119,17 @@ To check your implementation, run
 and verify in the output that all tests pass.
 
 Graphs
-======
+------------------------
 
 You should be familiar with the BFS (breadth-first search) algorithm.
 This exercise is to implement BFS for a given graph data type that
 involves functions and `BoundedSet`s.
-You can use the textbook implementation—the point is that you can
+You can use a textbook implementation—the point is that you can
 forget about the fact that the graph is "made of" functions.
 
 Implement `breadthFirstSearch` in `Graph.hs`.  Recall that BFS
-keeps track of the graph nodes that have been visited
-and the nodes that constitute the current frontier, and loops until it
+keeps track of the set of visited nodes and the set of newly
+discovered nodes (the frontier), and loops until it
 discovers no new graph nodes.
 
 A test is in `CheckGraph.hs`. To check your implementation, run
